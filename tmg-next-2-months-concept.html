@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TMG Revised Scope of Work — Modern Animal</title>
+<link rel="stylesheet" href="https://use.typekit.net/sbp7myt.css">
+<style>
+
+  /*
+    Adobe Fonts kit loaded above:
+    https://use.typekit.net/sbp7myt.css
+
+    Adobe/Typekit usually exposes Azo Sans as the CSS family name
+    "azo-sans-web". "Azo Sans Black" is the 900-weight style of that
+    family, not a separate CSS family name.
+  */
+
+
+  :root {
+    --ma-font-azo: "azo-sans-web", "Azo Sans", "Azo Sans Web", Arial, Helvetica, sans-serif;
+    --ma-black: #050504;
+    --ma-ink: #161612;
+    --ma-ink-soft: #3f3f38;
+    --ma-muted: #77766d;
+    --ma-light-muted: #a5a397;
+    --ma-paper: #f4f3ed;
+    --ma-paper-deep: #ecebe3;
+    --ma-card: #fffefa;
+    --ma-line: #d8d5c7;
+    --ma-yellow: #f6df2e;
+    --ma-yellow-soft: #fff7b8;
+    --ma-green: #dbeee4;
+    --ma-purple: #edeafd;
+    --ma-blue: #e4eef8;
+    --ma-amber: #f5e5c9;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: var(--ma-black); }
+
+  body {
+    font-family: var(--ma-font-azo);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ma-ink);
+    background:
+      linear-gradient(180deg, var(--ma-black) 0 216px, var(--ma-paper) 216px 100%);
+    padding: 44px 22px 56px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .intro-title,
+  .section-label,
+  .month-title,
+  .del-name,
+  .total-amount {
+    font-family: var(--ma-font-azo);
+  }
+
+
+  .section-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ma-muted);
+    margin: 0 0 .95rem;
+  }
+
+  .section-label::before {
+    content: "";
+    width: 4px;
+    height: 22px;
+    background: var(--ma-yellow);
+    display: inline-block;
+  }
+
+  .intro-block {
+    position: relative;
+    margin-bottom: 2.4rem;
+    padding: 2rem 2rem 1.85rem;
+    background: var(--ma-card);
+    border: 1px solid var(--ma-line);
+    border-top: 8px solid var(--ma-yellow);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .16);
+  }
+
+  .intro-block::before {
+    content: "MODERN ANIMAL";
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .18em;
+    color: var(--ma-muted);
+  }
+
+  .intro-title {
+    max-width: 760px;
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: .82;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--ma-black);
+    margin: 0 0 .75rem;
+    letter-spacing: -.075em;
+  }
+
+  .intro-sub {
+    display: inline-block;
+    font-size: 11px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ma-black);
+    background: var(--ma-yellow);
+    padding: 7px 10px 6px;
+    margin: 0 0 1.45rem;
+  }
+
+  .intro-body {
+    max-width: 820px;
+    font-size: 14px;
+    color: var(--ma-ink-soft);
+    line-height: 1.82;
+    margin: 0 0 1.25rem;
+  }
+
+  .pricing-note {
+    position: relative;
+    font-size: 13px;
+    color: var(--ma-ink-soft);
+    line-height: 1.72;
+    background: var(--ma-paper);
+    border: 1px solid var(--ma-line);
+    border-radius: 0;
+    padding: 1rem 1.15rem 1rem 1.35rem;
+  }
+
+  .pricing-note::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--ma-yellow);
+  }
+
+  .month-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 760px) {
+    .month-grid { grid-template-columns: 1fr; }
+  }
+
+  .month-card {
+    background: var(--ma-card);
+    border: 1px solid var(--ma-line);
+    border-radius: 0;
+    padding: 1.45rem;
+  }
+
+  .month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: -1.45rem -1.45rem 1.25rem;
+    padding: 1.25rem 1.45rem 1.05rem;
+    background: var(--ma-black);
+    color: #fff;
+    border-bottom: 5px solid var(--ma-yellow);
+  }
+
+  .month-title {
+    max-width: 270px;
+    font-size: 22px;
+    line-height: .92;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: -.055em;
+  }
+
+  .month-price {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ma-black);
+    background: var(--ma-yellow);
+    padding: 5px 8px 4px;
+    white-space: nowrap;
+    margin-left: 12px;
+  }
+
+  .month-sub {
+    font-size: 11px;
+    color: #d7d4c8;
+    margin-top: 7px;
+    font-style: normal;
+    letter-spacing: .02em;
+  }
+
+  .deliverable {
+    margin-bottom: 1.1rem;
+    padding-bottom: 1.05rem;
+    border-bottom: 1px solid #ece9dd;
+  }
+
+  .deliverable:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .del-name {
+    font-size: 15px;
+    line-height: 1.14;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--ma-black);
+    margin-bottom: 5px;
+    letter-spacing: -.035em;
+  }
+
+  .del-detail {
+    font-size: 12px;
+    color: var(--ma-muted);
+    line-height: 1.65;
+  }
+
+  .del-sub {
+    font-size: 12px;
+    color: var(--ma-muted);
+    line-height: 1.68;
+    margin-top: 8px;
+    padding: 12px 12px 12px 14px;
+    border-left: 4px solid var(--ma-yellow);
+    background: var(--ma-paper);
+  }
+
+  .del-sub strong {
+    color: var(--ma-black);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 9.5px;
+    line-height: 1;
+    font-weight: 900;
+    padding: 5px 8px 4px;
+    border-radius: 0;
+    margin-bottom: 8px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    border: 1px solid rgba(0,0,0,.08);
+  }
+
+  .badge-gray   { background: #eeeeE7; color: #55544d; }
+  .badge-teal   { background: var(--ma-green); color: #23543e; }
+  .badge-purple { background: var(--ma-purple); color: #383070; }
+  .badge-blue   { background: var(--ma-blue); color: #1f527b; }
+  .badge-amber  { background: var(--ma-amber); color: #744b13; }
+
+  .total-bar {
+    background: var(--ma-black);
+    border-radius: 0;
+    padding: 1.05rem 1.35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.6rem;
+    border-left: 8px solid var(--ma-yellow);
+  }
+
+  .total-label {
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #f3f1e6;
+  }
+
+  .total-amount {
+    font-size: 31px;
+    line-height: .9;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: -.055em;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--ma-line);
+    margin: 0 0 2rem;
+  }
+
+  .addon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 14px;
+    margin-bottom: 2.5rem;
+  }
+
+  .addon-card {
+    background: var(--ma-card);
+    border: 1px solid var(--ma-line);
+    border-radius: 0;
+    padding: 1.15rem 1.15rem 1.05rem;
+  }
+
+  .addon-title {
+    font-size: 16px;
+    line-height: 1.02;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--ma-black);
+    margin-bottom: 8px;
+    letter-spacing: -.04em;
+  }
+
+  .addon-detail {
+    font-size: 12px;
+    color: var(--ma-muted);
+    line-height: 1.6;
+  }
+
+  .phase2-card {
+    background: var(--ma-card);
+    border: 1px solid var(--ma-line);
+    border-radius: 0;
+    padding: 1.45rem;
+    margin-bottom: 2rem;
+  }
+
+  .phase2-note {
+    position: relative;
+    font-size: 12px;
+    color: var(--ma-muted);
+    font-style: normal;
+    margin-bottom: 1.2rem;
+    line-height: 1.65;
+    padding-left: 14px;
+  }
+
+  .phase2-note::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    background: var(--ma-yellow);
+  }
+
+  .phase2-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+  }
+
+  .phase2-item {
+    background: var(--ma-paper);
+    border: 1px solid #e5e2d7;
+    border-radius: 0;
+    padding: 1rem 1.05rem;
+  }
+
+  .phase2-item-title {
+    font-size: 14px;
+    line-height: 1.06;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--ma-black);
+    margin-bottom: 7px;
+    letter-spacing: -.035em;
+  }
+
+  .phase2-item-detail {
+    font-size: 12px;
+    color: var(--ma-muted);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    body {
+      padding: 26px 14px 42px;
+      background: linear-gradient(180deg, var(--ma-black) 0 160px, var(--ma-paper) 160px 100%);
+    }
+
+    .intro-block {
+      padding: 1.35rem 1.1rem 1.25rem;
+    }
+
+    .intro-title {
+      font-size: 42px;
+    }
+
+    .month-card,
+    .phase2-card {
+      padding: 1.15rem;
+    }
+
+    .month-header {
+      margin: -1.15rem -1.15rem 1.15rem;
+      padding: 1.05rem 1.15rem .9rem;
+      flex-direction: column;
+      gap: .8rem;
+    }
+
+    .month-price {
+      margin-left: 0;
+    }
+
+    .total-bar {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media print {
+    html, body { background: var(--ma-paper); }
+    body { padding: 0; }
+    .page { max-width: 100%; }
+    .intro-block { box-shadow: none; }
+    .month-grid { grid-template-columns: 1fr 1fr; }
+    .month-card, .addon-card, .phase2-card, .phase2-item, .intro-block { break-inside: avoid; }
+  }
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Intro -->
+  <div class="intro-block">
+    <p class="intro-title">Revised scope of work</p>
+    <p class="intro-sub">The Marriage Group — Modern Animal / Phase 1</p>
+    <p class="intro-body">The next two months represent a meaningful opportunity to build something that will make everything that follows faster, cleaner, and more effective. Rather than continuing execution against a strategy developed under different assumptions, this phase focuses on getting the fundamentals right — clarifying how TMG's brands relate to one another, sharpening the messaging, documenting how the marketing operation runs, and putting the right structure in place for an incoming hire. These deliverables aren't supporting materials — they're the foundation that TMG's team, new hire, and future partners will rely on to do their best work. Phase 2, when full campaign execution resumes, will be significantly stronger for it.</p>
+    <p class="pricing-note">The monthly investment of $10,450 reflects the remaining balance due under the existing agreement, applied proportionately across both months. The scope below has been designed to deliver maximum value within that figure — replacing the original execution plan with a revised set of strategic and operational deliverables suited to where TMG is today.</p>
+  </div>
+
+  <!-- Phase 1 Core Scope -->
+  <p class="section-label">Phase 1 core scope — $20,900 / two months</p>
+
+  <div class="month-grid">
+
+    <!-- Month 1 -->
+    <div class="month-card">
+      <div class="month-header">
+        <div>
+          <div class="month-title">Month 1 — Brand and strategy</div>
+          <div class="month-sub">June (subject to start date)</div>
+        </div>
+        <span class="month-price">$10,450</span>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-gray">ongoing</div>
+        <div class="del-name">Google Ads management</div>
+        <div class="del-detail">Continue and optimize current campaigns. Monitor performance and report. (~$1,500/month ad spend, managed within scope.)</div>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-teal">brand</div>
+        <div class="del-name">Brand architecture map</div>
+        <div class="del-detail">Document the full TMG portfolio — Pre-Cana, MED, Advanced Ministries, and others. Clarify relationships, positioning, and how each brand serves a distinct audience.</div>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-teal">brand</div>
+        <div class="del-name">Brand guidelines (v1)</div>
+        <div class="del-detail">Practical guidance for making the most of the existing brand — no rebrand. Integrates earlier positioning recommendations and any new brand direction Matt wants to include. Covers voice, tone, and visual usage across the portfolio. Includes a website narrative and creative direction document to guide how the brand shows up online.</div>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-purple">strategy</div>
+        <div class="del-name">Revised messaging framework</div>
+        <div class="del-detail">Account for unsettled pricing and positioning. Audience-specific messaging for Pre-Cana and MED. A stable reference document, not a full campaign.</div>
+      </div>
+    </div>
+
+    <!-- Month 2 -->
+    <div class="month-card">
+      <div class="month-header">
+        <div>
+          <div class="month-title">Month 2 — System and handoff</div>
+          <div class="month-sub">July (subject to start date)</div>
+        </div>
+        <span class="month-price">$10,450</span>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-gray">ongoing</div>
+        <div class="del-name">Google Ads management</div>
+        <div class="del-detail">Continued optimization. (~$1,500/month ad spend, managed within scope.)</div>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-purple">strategy</div>
+        <div class="del-name">Customer personas (updated)</div>
+        <div class="del-detail">Rebuild or update existing personas to reflect the revised target audience and positioning developed in Month 1.</div>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-purple">strategy</div>
+        <div class="del-name">Customer journeys (2)</div>
+        <div class="del-detail">Expand the existing consumer journey to include all products and verticals in a unified flow. Build the ministry leader journey from scratch, covering all TMG products and offerings. Each delivered as a visual map and written narrative.</div>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-blue">operations</div>
+        <div class="del-name">Marketing operations system</div>
+        <div class="del-detail">Two additions to the existing system:</div>
+        <div class="del-sub">
+          <strong>Core process documents</strong> — 2–3 SOPs for key operational areas (sales, PR, and marketing). Owned by TMG, structured for agency or vendor collaboration.<br><br>
+          <strong>Ideas intake and prioritization system</strong> — A lightweight process ensuring new ideas from anywhere in the organization are captured, reviewed, and sequenced before moving into execution.<br><br>
+          Publishing calendars, integrations, and campaign tracking will be completed in Phase 2.
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="badge badge-amber">hire</div>
+        <div class="del-name">New hire position description + onboarding guide</div>
+        <div class="del-detail">Draft the marketing coordinator/manager job description. Include a 30/60/90-day onboarding guide so the new hire inherits a clear, documented system from day one.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="total-bar">
+    <span class="total-label">Phase 1 core scope total</span>
+    <span class="total-amount">$20,900</span>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Add-ons -->
+  <p class="section-label">Phase 1 optional add-ons</p>
+
+  <div class="addon-grid">
+    <div class="addon-card">
+      <div class="badge badge-teal">brand</div>
+      <div class="addon-title">UX/UI + strategic consultation</div>
+      <div class="addon-detail">4–6 hours per week of design and strategic guidance for TMG's internal team — reviewing work in progress, providing feedback, and coaching on design and development decisions to ensure alignment with brand recommendations and Phase 2 lead generation requirements.</div>
+    </div>
+    <div class="addon-card">
+      <div class="badge badge-purple">strategy</div>
+      <div class="addon-title">Advanced Ministries strategic stack</div>
+      <div class="addon-detail">A series of positioning, audience, and strategy documents tailored to Advanced Ministries — useful if that brand needs to move independently or serve a distinct buyer profile.</div>
+    </div>
+    <div class="addon-card">
+      <div class="badge badge-amber">hire</div>
+      <div class="addon-title">Active hiring support</div>
+      <div class="addon-detail">Hands-on involvement in the hiring process — reviewing applications, drafting interview questions, and candidate debrief. Priced per engagement or as a flat add-on.</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Phase 2 -->
+  <p class="section-label">Phase 2 — to be defined together after Phase 1</p>
+
+  <div class="phase2-card">
+    <p class="phase2-note">Phase 2 scope and approach will be determined collaboratively once Phase 1 is complete. The components below represent likely directions based on what we know today — not commitments.</p>
+    <div class="phase2-row">
+      <div class="phase2-item">
+        <div class="phase2-item-title">Foundational brand marketing systems</div>
+        <div class="phase2-item-detail">Complete the marketing infrastructure begun in Phase 1 — publishing calendars, channel integrations, campaign tracking, and the full content marketing system.</div>
+      </div>
+      <div class="phase2-item">
+        <div class="phase2-item-title">Pre-Cana lead generation program</div>
+        <div class="phase2-item-detail">Resume and complete the Pre-Cana growth model: paid amplification, lead nurture sequences, and conversion tracking — built on the revised messaging, personas, and journeys from Phase 1.</div>
+      </div>
+      <div class="phase2-item">
+        <div class="phase2-item-title">New hire integration and coaching</div>
+        <div class="phase2-item-detail">A defined engagement in which Modern Animal provides onboarding support, strategic oversight, and coaching to ensure the new hire is set up for independent ownership of day-to-day operations.</div>
+      </div>
+      <div class="phase2-item">
+        <div class="phase2-item-title">MED + portfolio expansion</div>
+        <div class="phase2-item-detail">Apply the Pre-Cana growth model to MED and other portfolio brands once Pre-Cana results validate the approach.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
