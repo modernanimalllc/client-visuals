@@ -447,12 +447,96 @@
     .month-card, .addon-card, .phase2-card, .phase2-item, .intro-block { break-inside: avoid; }
   }
 
+
+  /* Added only to support the updated total-bar markup in v12. */
+  .total-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .total-value-note {
+    font-size: 11px;
+    color: #d7d4c8;
+    line-height: 1.35;
+  }
+
+  .total-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .total-retail {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .total-retail-label {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #d7d4c8;
+  }
+
+  .total-retail-price {
+    font-size: 13px;
+    font-weight: 800;
+    color: #d7d4c8;
+    text-decoration: line-through;
+  }
+
+  .savings-badge {
+    display: inline-block;
+    font-size: 9.5px;
+    line-height: 1;
+    font-weight: 900;
+    padding: 5px 8px 4px;
+    border-radius: 0;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: var(--ma-yellow);
+    color: var(--ma-black);
+  }
+
+  @media (max-width: 640px) {
+    .total-right { align-items: flex-start; }
+    .total-retail { justify-content: flex-start; }
+  }
+
+
+  /* Azo Sans Black header consistency audit against Modern Animal visual guide.
+     Header, label, card-title, and high-emphasis display elements use
+     the Adobe Fonts Azo Sans family at Black/900 weight. */
+  .intro-block::before,
+  .intro-title,
+  .intro-sub,
+  .section-label,
+  .month-title,
+  .month-price,
+  .del-name,
+  .del-sub strong,
+  .badge,
+  .total-label,
+  .total-amount,
+  .total-retail-label,
+  .total-retail-price,
+  .savings-badge,
+  .addon-title,
+  .phase2-item-title {
+    font-family: var(--ma-font-azo);
+    font-weight: 900;
+  }
+
 </style>
 </head>
 <body>
 <div class="page">
-
-  <!-- Intro -->
   <div class="intro-block">
     <p class="intro-title">Revised scope of work</p>
     <p class="intro-sub">The Marriage Group — Modern Animal / Phase 1</p>
@@ -460,12 +544,9 @@
     <p class="pricing-note">The monthly investment of $10,450 reflects the remaining balance due under the existing agreement, applied proportionately across both months. The scope below has been designed to deliver maximum value within that figure — replacing the original execution plan with a revised set of strategic and operational deliverables suited to where TMG is today.</p>
   </div>
 
-  <!-- Phase 1 Core Scope -->
   <p class="section-label">Phase 1 core scope — $20,900 / two months</p>
 
   <div class="month-grid">
-
-    <!-- Month 1 -->
     <div class="month-card">
       <div class="month-header">
         <div>
@@ -478,7 +559,7 @@
       <div class="deliverable">
         <div class="badge badge-gray">ongoing</div>
         <div class="del-name">Google Ads management</div>
-        <div class="del-detail">Continue and optimize current campaigns. Monitor performance and report. (~$1,400/month ad management, ad spend extra.)</div>
+        <div class="del-detail">Continue and optimize current campaigns. Monitor performance and report. (~$1,400/month ad spend, managed within scope.)</div>
       </div>
 
       <div class="deliverable">
@@ -489,19 +570,17 @@
 
       <div class="deliverable">
         <div class="badge badge-teal">brand</div>
-        <div class="del-name">Brand guidelines (v1)</div>
+        <div class="del-name">Brand guidelines</div>
         <div class="del-detail">Practical guidance for making the most of the existing brand — no rebrand. Integrates earlier positioning recommendations and any new brand direction Matt wants to include. Covers voice, tone, and visual usage across the portfolio. Includes a website narrative and creative direction document to guide how the brand shows up online.</div>
       </div>
 
       <div class="deliverable">
         <div class="badge badge-purple">strategy</div>
-        <div class="del-name">Product positioning + pricing discovery plan</div>
-        <div class="del-detail">Account for unsettled pricing and positioning. What should each product cost, why is it worth that price, how is it different from competitors, and how should that value be communicated?</div>
+        <div class="del-name">Product pricing + positioning snapshot</div>
+        <div class="del-detail">A concise strategic reference document that clarifies recommended pricing direction, competitive context, key differentiators, and value communication guidance for each priority TMG product. Not a full campaign plan or exhaustive market analysis — a focused decision-support document to help TMG finalize pricing and communicate value more clearly.</div>
       </div>
-      
     </div>
 
-    <!-- Month 2 -->
     <div class="month-card">
       <div class="month-header">
         <div>
@@ -514,18 +593,18 @@
       <div class="deliverable">
         <div class="badge badge-gray">ongoing</div>
         <div class="del-name">Google Ads management</div>
-        <div class="del-detail">Continued optimization. (~$1,400/month ad management, ad spend extra.)</div>
+        <div class="del-detail">Continued optimization. (~$1,400/month ad spend, managed within scope.)</div>
       </div>
 
       <div class="deliverable">
         <div class="badge badge-purple">strategy</div>
-        <div class="del-name">Customer personas (updated)</div>
+        <div class="del-name">Refreshed customer personas</div>
         <div class="del-detail">Rebuild or update existing personas to reflect the revised target audience and positioning developed in Month 1.</div>
       </div>
 
       <div class="deliverable">
         <div class="badge badge-purple">strategy</div>
-        <div class="del-name">Customer journeys (2)</div>
+        <div class="del-name">Customer journeys</div>
         <div class="del-detail">Expand the existing consumer journey to include all products and verticals in a unified flow. Build the ministry leader journey from scratch, covering all TMG products and offerings. Each delivered as a visual map and written narrative.</div>
       </div>
 
@@ -546,17 +625,25 @@
         <div class="del-detail">Draft the marketing coordinator/manager job description. Include a 30/60/90-day onboarding guide so the new hire inherits a clear, documented system from day one.</div>
       </div>
     </div>
-
   </div>
 
   <div class="total-bar">
-    <span class="total-label">Phase 1 core scope total</span>
-    <span class="total-amount">$20,900</span>
+    <div class="total-left">
+      <span class="total-label">Phase 1 core scope total</span>
+      <span class="total-value-note">Priced to honor the remaining balance under the existing agreement</span>
+    </div>
+    <div class="total-right">
+      <div class="total-retail">
+        <span class="total-retail-label">Standard project rate</span>
+        <span class="total-retail-price">$25,800</span>
+        <span class="savings-badge">Save $4,900</span>
+      </div>
+      <span class="total-amount">$20,900</span>
+    </div>
   </div>
 
   <hr class="divider" />
 
-  <!-- Add-ons -->
   <p class="section-label">Phase 1 optional add-ons</p>
 
   <div class="addon-grid">
@@ -579,7 +666,6 @@
 
   <hr class="divider" />
 
-  <!-- Phase 2 -->
   <p class="section-label">Phase 2 — to be defined together after Phase 1</p>
 
   <div class="phase2-card">
@@ -605,5 +691,6 @@
   </div>
 
 </div>
+
 </body>
 </html>
