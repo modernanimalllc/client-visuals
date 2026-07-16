@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TMG — Brand Direction: Decisions Needed</title>
+<style>
+  :root{
+    color-scheme: light;
+    --charcoal:#222222; --red:#c01823; --red-soft:#e63e49;
+    --cream:#faf7f2; --card:#ffffff; --line:#e7e1d8; --ink:#2a2a2a;
+    --muted:#6b6b6b; --gold:#b78a3e; --blue:#33506b;
+    --ok:#056735; --chip:#f2ece2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5; font-size:15px;
+  }
+  .wrap{max-width:900px; margin:0 auto; padding:34px 30px 60px;}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif; color:var(--charcoal); line-height:1.2;}
+  h1{font-size:29px; margin:0 0 4px;}
+  h2{font-size:20px; margin:34px 0 6px; padding-bottom:6px; border-bottom:2px solid var(--charcoal);}
+  h3{font-size:15px; margin:0 0 3px;}
+  .sub{color:var(--muted); font-size:13.5px; margin:0 0 4px;}
+  .eyebrow{color:var(--red); font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:700;}
+  p{margin:8px 0;}
+  em{font-style:italic; color:var(--red);}
+  .lede{font-size:15.5px;}
+  .callout{
+    background:var(--card); border:1px solid var(--line); border-left:4px solid var(--red);
+    border-radius:10px; padding:16px 18px; margin:14px 0;
+  }
+  .callout.blue{border-left-color:var(--blue);}
+  .rec{display:inline-block; background:#efe7d6; color:#7a5b18; border:1px solid #e2d3ad;
+    font-size:11px; font-weight:700; padding:2px 8px; border-radius:20px; letter-spacing:.02em;}
+  /* decision rows */
+  .row{background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:14px 16px; margin:12px 0;}
+  .row-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .row-title{font-family:Georgia,serif; font-size:15.5px; color:var(--charcoal); font-weight:600;}
+  .pos{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:10px 0 2px;}
+  .pos > div{background:var(--cream); border:1px solid var(--line); border-radius:8px; padding:8px 11px; font-size:13px;}
+  .pos .lab{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--muted); display:block; margin-bottom:2px;}
+  .pos .ma .lab{color:var(--charcoal);}
+  .pos .new .lab{color:var(--red);}
+  .chips{display:flex; gap:8px; flex-wrap:wrap; margin:11px 0 4px;}
+  .chip{
+    border:1.5px solid var(--line); background:var(--chip); color:var(--ink);
+    border-radius:24px; padding:6px 15px; font-size:13px; font-weight:600; cursor:pointer;
+    user-select:none; transition:all .12s;
+  }
+  .chip:hover{border-color:var(--charcoal);}
+  .chip[aria-checked="true"]{background:var(--charcoal); color:#fff; border-color:var(--charcoal);}
+  .chip.new[aria-checked="true"]{background:var(--red); border-color:var(--red);}
+  .chip.blend[aria-checked="true"]{background:var(--blue); border-color:var(--blue);}
+  .note{width:100%; margin-top:9px; border:1px solid var(--line); border-radius:8px;
+    padding:8px 10px; font:inherit; font-size:13px; resize:vertical; min-height:34px; background:#fff;}
+  .note::placeholder{color:#b6b0a6;}
+  .aligned{font-size:13px; color:var(--muted); background:#f4efe7; border-radius:8px; padding:9px 13px; margin:8px 0;}
+  .aligned b{color:var(--ok);}
+  /* compliance */
+  .fix{display:flex; align-items:flex-start; gap:10px; background:var(--card); border:1px solid var(--line);
+    border-radius:9px; padding:10px 13px; margin:8px 0; font-size:13.5px;}
+  .fix input{margin-top:3px; width:17px; height:17px; accent-color:var(--ok); flex:none;}
+  /* toolbar */
+  .toolbar{position:sticky; top:0; z-index:5; background:var(--cream);
+    display:flex; gap:10px; justify-content:flex-end; padding:10px 0; margin-bottom:-4px; flex-wrap:wrap;}
+  .btn{border:1.5px solid var(--charcoal); background:var(--charcoal); color:#fff; border-radius:24px;
+    padding:8px 17px; font:inherit; font-weight:600; font-size:13.5px; cursor:pointer;}
+  .btn.ghost{background:#fff; color:var(--charcoal);}
+  .btn:hover{opacity:.9;}
+  .foot{margin-top:26px; font-size:13px; color:var(--muted); border-top:1px solid var(--line); padding-top:14px;}
+  /* summary modal */
+  .modal{position:fixed; inset:0; background:rgba(30,26,22,.55); display:none; align-items:center; justify-content:center; padding:22px; z-index:20;}
+  .modal.on{display:flex;}
+  .modal-inner{background:#fff; border-radius:14px; max-width:640px; width:100%; padding:22px; max-height:86vh; overflow:auto;}
+  .modal textarea{width:100%; min-height:300px; border:1px solid var(--line); border-radius:8px; padding:12px; font:13px/1.5 ui-monospace,Menlo,Consolas,monospace;}
+  @media (max-width:620px){ .pos{grid-template-columns:1fr;} }
+  @media print{
+    body{background:#fff;} .toolbar,.modal{display:none !important;}
+    .row,.callout,.fix{break-inside:avoid;} .wrap{padding:0;}
+    a[href]:after{content:"";}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="toolbar">
+    <button class="btn ghost" onclick="window.print()">Print / Save as PDF</button>
+    <button class="btn" onclick="genSummary()">Generate summary to send back</button>
+  </div>
+
+  <div class="eyebrow">The Marriage Group × Modern Animal · July 2026</div>
+  <h1>Brand Direction: Decisions Needed</h1>
+  <p class="sub">A short worksheet to lock the final Brand Guidelines. About 15 minutes — pick a status on each decision and add a note. Your choices save in this browser; use “Generate summary to send back” when complete.</p>
+
+  <h2>Where we are</h2>
+  <p class="lede">You have two strong bodies of brand work. <b>Modern Animal’s recommended direction</b> emerged from our 2025 strategy — personas, customer journey, positioning, and competitive analysis. <b>Your team’s new direction</b> emerged from the May website prototype and the July marketing videos. Encouragingly, they agree on the central shift — <em>marriage prep is becoming lifelong formation</em> — and both independently arrived at the same idea, “become the couple other couples want to become.” What remains is a short list of choices about how the brand looks, sounds, and whom it leads with.</p>
+
+  <div class="callout">
+    <h3 style="margin-top:0">Why reconciling now matters</h3>
+    <p style="margin-bottom:0">A full set of videos and a new site prototype were produced before creative and strategy were reconciled. The work is strong; it simply preceded alignment, which is the natural cost of the two developing separately. Aligning them now, and keeping them aligned, ensures the next piece is on-strategy from the outset.</p>
+  </div>
+
+  <h2>The one decision that drives the rest</h2>
+  <p>Almost every choice below flows from a single question: <b>what does the brand lead with?</b></p>
+  <div class="callout">
+    <p style="margin-top:0"><b>Modern Animal leads with aspiration.</b> The faithful couple who sees marriage as a lifelong vocation — aiming a little higher so the brand <em>inspires</em>, and can stand next to Ascension, Word on Fire, and Hallow.</p>
+    <p style="margin-bottom:0"><b>Your new direction leads with approachability.</b> Meeting couples where they are first — busy, blended, interfaith, already civilly married — with a “welcoming, approachable” front door.</p>
+  </div>
+  <p><b>Both are faithful.</b> The difference is the entry stance, not the depth of faith. It matters because it sets three things at once:</p>
+  <p style="margin:6px 0 2px"><b>1. Brand &amp; differentiation</b> — whether TMG owns the premium “faithful formation” space or competes on accessibility.<br>
+  <b>2. Marketing &amp; growth</b> — who we target and how we spend: the aspirational funnel inspires upward and can capture the full market; the accessible funnel converts today’s couples faster.<br>
+  <b>3. Product design</b> — how we build the experience: personalization, the first year of <em>Marriage Every Day</em>, and the fellowship features all calibrate to who we’re serving.</p>
+  <div class="callout blue">
+    <span class="rec">★ Our recommendation</span>
+    <p style="margin-bottom:0; margin-top:8px"><b>Blend, with a clear hierarchy.</b> Lead with the higher aspiration as the brand’s north star, and use approachability as the on-ramp. <b>Keep the ceiling high; keep the door wide.</b> This preserves the premium positioning our strategy was built to win while keeping the accessible, real-life welcome your videos and prototype do well — so none of the produced work is wasted.</p>
+  </div>
+
+  <h2>Decisions — how the brand sounds</h2>
+  <p class="sub">Where the two agree, there’s nothing to decide: <b style="color:var(--ok)">positioning</b> (prep → lifelong formation), the <b style="color:var(--ok)">aspirational identity</b> (“become the couple…”), and <b style="color:var(--ok)">two audiences, two paths</b> (couples vs. ministry leaders) are all aligned. The decisions below are the real choices.</p>
+
+  <!-- V1 -->
+  <div class="row" data-id="Entry stance / what we lead with">
+    <div class="row-head"><span class="row-title">1. What we lead with</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Faithful aspiration first — “welcoming, faithful.”</div>
+      <div class="new"><span class="lab">New direction</span>Approachability first — “welcoming, approachable,” meet-you-where-you-are.</div>
+    </div>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- V2 -->
+  <div class="row" data-id="Emotional entry point (directional)">
+    <div class="row-head"><span class="row-title">2. The emotional entry point</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Open with invitation &amp; joy — draw couples toward something meaningful.</div>
+      <div class="new"><span class="lab">New direction</span>Open by naming the risk — what’s at stake if formation stops at the wedding.</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0"><b>Directional only</b> — a lean, not final headlines (those get tested as we go). <i>e.g. invitation: “Most marriage prep ends at the altar. Yours doesn’t have to.” · risk: “Support disappears after the wedding.”</i></p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- V3 -->
+  <div class="row" data-id="Messaging pillars (ours vs. theirs)">
+    <div class="row-head"><span class="row-title">3. The messaging pillars</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Proposed pillars</span>Joy · Transformation · Journey · Beauty · Accompaniment.</div>
+      <div class="new"><span class="lab">Themes in your new work</span>Formation-not-completion · Becoming · Personalization · Faithful &amp; accessible · Community.</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0">A customer-grounded set to co-own, not a fixed list. Reviews echo most: “eye-opening” (Transformation), “many laughs” (Joy), prepare → enrich → form (Journey), “supports, not replaces” (Accompaniment); Beauty carries the elevated, sacred tone. “Become the couple…” is Transformation’s headline, and “pilgrimage” stays a copy word. <b>Blend =</b> keep these as the spine and fold in Personalization (decision 6) and Community (a Brand Architecture Map question — how TMG’s products fit together). Worth re-wording together so they’re fully yours.</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- V4 -->
+  <div class="row" data-id="'Flexible' handling">
+    <div class="row-head"><span class="row-title">4. The word “flexible”</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>A supporting reassurance rather than the identity: “flexible” tells busy couples the experience fits their life, instead of leading the message (we retired the old “Faithful · Flexible · Fun”).</div>
+      <div class="new"><span class="lab">New direction</span>Back as a headline theme (“faithful, flexible Pre-Cana formation”).</div>
+    </div>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- V5 -->
+  <div class="row" data-id="How present and consistent the faith is">
+    <div class="row-head"><span class="row-title">5. How present and consistent the faith is</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Faith as a consistent, invitational throughline — confident, woven through beauty and meaning (“timeless Catholic wisdom”), present without leading with doctrine.</div>
+      <div class="new"><span class="lab">New direction</span>Faith shows up unevenly — strong in a few lines (“witness to the beauty of God’s design … the vocation of marriage”), but most couples copy stays faith-light and relational (“prepare for real life”).</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0">Distinct from decision 1 (what we lead with): this is <i>how present and consistent</i> the faith is. <b>Blend =</b> a steady invitational throughline, anchored by their strongest faith line, rather than a faith-light funnel.</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- V6 -->
+  <div class="row" data-id="Personalization as a lead promise">
+    <div class="row-head"><span class="row-title">6. Personalization — “meet each couple’s real story”</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Personalization is present, but the lead is the journey — careful not to revert to convenience or logistics.</div>
+      <div class="new"><span class="lab">New direction</span>Personalization is the headline differentiator — built around your situation (blended, military, interfaith, convalidation, cohabiting).</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0">Why it matters: personalization turns a course into the <i>door</i> into a longer-term journey — built around a couple’s real story, it continues into married life (enrichment, formation, MED) instead of ending at the certificate. It’s also the biggest lever on product design. <b>Blend =</b> make personalization a lead promise, without letting convenience become the identity.</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- V7 -->
+  <div class="row" data-id="What proof leads (trust)">
+    <div class="row-head"><span class="row-title">7. What proof leads</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Church trust leads — “Promoted by the USCCB, accepted in parishes and dioceses worldwide.”</div>
+      <div class="new"><span class="lab">New direction</span>Scale &amp; reviews lead — 100,000+ couples, 100+ countries, 4.9★ on Google.</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0"><b>Blend =</b> lead with church approval (your differentiator), support with scale and reviews. Your reviews page already does this in its credibility section (USCCB, CFLA + 100,000+ couples, 4.9★). Adding the approval line is also a fix below.</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- V8 -->
+  <div class="row" data-id="Pricing / commerce restraint">
+    <div class="row-head"><span class="row-title">8. The pricing moment</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Restraint: show value simply and let the premium feel earn the price.</div>
+      <div class="new"><span class="lab">New direction</span>Value-stacked block (“$531 total value → $225 today”).</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0"><b>Blend =</b> keep the proof, lose the stack. Pricing structure is in active experimentation, so this decision is about how the price is <i>presented</i>, not the numbers.</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <div class="aligned"><b>Language note.</b> Use “flexible &amp; convenient,” not “self-paced.” In TMG’s own voice, “self-paced” frames the experience as go-it-alone, against the accompaniment promise. Couples saying “at our own pace” in reviews is fine — that’s them praising flexibility; the guidance is about our copy, not theirs.</div>
+
+  <h2>Decisions — how the brand looks</h2>
+  <p class="sub">Aligned already (no decision needed): <b style="color:var(--ok)">logo &amp; Rose Icon</b>, the <b style="color:var(--ok)">cream/warm base</b>, and the <b style="color:var(--ok)">rose watermark</b> — your prototype moved toward these. The decisions below are where it diverges.</p>
+
+  <!-- Vi2 -->
+  <div class="row" data-id="Photography direction">
+    <div class="row-head"><span class="row-title">9. Photography</span><span class="rec">★ We suggest: Keep MA</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Authentic real-couple imagery, expanded to show the <i>result</i> of formation (the benefits of a joyful, lasting marriage), not only couples using the product.</div>
+      <div class="new"><span class="lab">New direction</span>Imagery mostly shows couples interacting with the product; authenticity is mixed, with some images reading stock or AI-generated.</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0">Recommendation: set an authenticity standard and expand imagery to show outcomes and benefits, with room for visual storytelling (e.g. Instagram).</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- Vi3 -->
+  <div class="row" data-id="Texture / sacred-modern feel">
+    <div class="row-head"><span class="row-title">10. Texture &amp; sacred-modern feel</span><span class="rec">★ We suggest: Keep MA</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Natural texture + serif + subtle sacred echoes = premium, transcendent.</div>
+      <div class="new"><span class="lab">New direction</span>Clean and modern, but texture largely absent — reads closer to SaaS than sacred.</div>
+    </div>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- Vi5 -->
+  <div class="row" data-id="Headline / display typeface">
+    <div class="row-head"><span class="row-title">11. Headline typeface</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Sacred-modern: a modern serif influence in the lead headlines for a premium, transcendent feel.</div>
+      <div class="new"><span class="lab">New direction</span>Split by property: the May prototype is all-sans (no serif), but your newer themarriagegroup.reviews site already uses an elegant modern serif for display type.</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0">Your newest property already does this — the reviews site uses a modern serif for headlines, sans for body. <b>Blend =</b> carry it across the brand: serif for hero/emotional headlines, sans for functional text.</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <!-- Vi6 -->
+  <div class="row" data-id="Interface & iconography cues">
+    <div class="row-head"><span class="row-title">12. Interface &amp; iconography cues</span><span class="rec">★ We suggest: Blend</span></div>
+    <div class="pos">
+      <div class="ma"><span class="lab">Modern Animal</span>Sacred-modern restraint — lean on the rose motif and editorial spacing; few generic interface ornaments.</div>
+      <div class="new"><span class="lab">New direction</span>Thin-line icons, pill buttons, and rounded feature cards — clean, but reads like a tech product.</div>
+    </div>
+    <p class="sub" style="margin:2px 0 0"><b>Blend =</b> keep the clean, usable components, but reduce the generic software cues so the pages read sacred-premium rather than SaaS.</p>
+    <div class="chips" data-group></div>
+    <textarea class="note" placeholder="Notes / reasoning…"></textarea>
+  </div>
+
+  <div class="aligned"><b>The produced videos: a scoped add-on.</b> The videos are already produced, and the work is strong; they simply preceded this reconciliation. Screening them for strategy fit and the compliance items below sits outside this engagement, so we can offer it as a scoped add-on at our hourly rate (roughly one hour per video, with an optional second round after any edits). We would confirm the final count first. It is also the clearest illustration of the value of aligning marketing and strategy at the outset.</div>
+
+  <h2>Must-fix — regardless of the choices above</h2>
+  <p class="sub">These are correctness items (trademark, approved claims, regulated language), not matters of taste. Please approve so we can correct them across the site and videos.</p>
+  <label class="fix"><input type="checkbox" data-fix="Add USCCB approval trust line"><span><b>Add the approval trust line.</b> The prototype and videos don’t use it. Add “Promoted by the USCCB, accepted in parishes and dioceses worldwide” (never “certified/endorsed”); your reviews site already has compliant wording to reuse (“Promoted by the USCCB … without implying endorsement by every diocese”). This is your strongest differentiator.</span></label>
+  <label class="fix"><input type="checkbox" data-fix="Confirm NFP/Pre-Cana disclaimers"><span><b>Confirm disclaimers.</b> Keep NFP / Pre-Cana educational-not-medical, not-counseling language wherever products are described.</span></label>
+  <label class="fix"><input type="checkbox" data-fix="Apply ®/™ in videos & talking points"><span><b>Trademark treatment in videos.</b> The prototype does this correctly; the talking points use plain names — align the finished videos (<i>Living Our Faith in Love</i>®, <i>NFP Life</i>®, <i>Marriage Every Day</i>™).</span></label>
+
+  <h2>Source of truth for the guidelines</h2>
+  <p class="sub">One pick — what should anchor the final document?</p>
+  <div class="row" data-id="Source of truth">
+    <div class="chips" data-group data-sot></div>
+    <textarea class="note" placeholder="Anything you’d add or change about this choice…"></textarea>
+  </div>
+
+  <div class="foot">
+    <b>What happens next.</b> You decide and comment here, then we compile one clean guidelines pass. Reconciling this step moves final guidelines delivery from July 24 to about July 29: roughly one day to build the gap analysis, and about two business days for your review. From there, the guidelines become the shared reference that keeps every future piece of copy, design, video, and product aligned to a single direction.
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-inner">
+    <h3 style="font-size:18px; margin-top:0">Your decisions — copy and send back</h3>
+    <p class="sub">Copy everything below into an email or reply to Modern Animal.</p>
+    <textarea id="summaryText" readonly></textarea>
+    <div style="display:flex; gap:10px; margin-top:12px; justify-content:flex-end;">
+      <button class="btn ghost" onclick="document.getElementById('modal').classList.remove('on')">Close</button>
+      <button class="btn" onclick="copySummary()">Copy to clipboard</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const OPTIONS = [
+    {key:'ma',    label:'Keep MA'},
+    {key:'new',   label:'Go New'},
+    {key:'blend', label:'Blend'}
+  ];
+  const SOT = [
+    {key:'ma',    label:'A · MA strategy holds'},
+    {key:'new',   label:'B · New direction leads'},
+    {key:'blend', label:'C · Defined hybrid ★'}
+  ];
+  let STORE = {};
+  try { STORE = JSON.parse(localStorage.getItem('tmg_decisions')||'{}'); } catch(e){ STORE = {}; }
+  function save(){ try{ localStorage.setItem('tmg_decisions', JSON.stringify(STORE)); }catch(e){} }
+
+  document.querySelectorAll('.row').forEach(row=>{
+    const id = row.dataset.id;
+    const group = row.querySelector('[data-group]');
+    const opts = group.hasAttribute('data-sot') ? SOT : OPTIONS;
+    opts.forEach(o=>{
+      const b = document.createElement('button');
+      b.className = 'chip ' + o.key;
+      b.textContent = o.label;
+      b.setAttribute('role','radio');
+      b.setAttribute('aria-checked', (STORE[id] && STORE[id].choice===o.key) ? 'true':'false');
+      b.onclick = ()=>{
+        group.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-checked','false'));
+        b.setAttribute('aria-checked','true');
+        STORE[id] = STORE[id]||{}; STORE[id].choice = o.label; save();
+      };
+      group.appendChild(b);
+    });
+    const note = row.querySelector('.note');
+    if(STORE[id] && STORE[id].note) note.value = STORE[id].note;
+    note.addEventListener('input', ()=>{ STORE[id]=STORE[id]||{}; STORE[id].note=note.value; save(); });
+  });
+
+  document.querySelectorAll('[data-fix]').forEach(cb=>{
+    const k = 'fix::'+cb.dataset.fix;
+    cb.checked = !!STORE[k];
+    cb.addEventListener('change', ()=>{ STORE[k]=cb.checked; save(); });
+  });
+
+  function genSummary(){
+    let out = "THE MARRIAGE GROUP — BRAND DIRECTION DECISIONS\\n";
+    out += "Returned by: ____________________   Date: ____________\\n";
+    out += "======================================================\\n\\n";
+    document.querySelectorAll('.row').forEach(row=>{
+      const id = row.dataset.id;
+      const d = STORE[id]||{};
+      out += "• " + id + "\\n";
+      out += "   Decision: " + (d.choice || "(not selected)") + "\\n";
+      if(d.note) out += "   Notes: " + d.note + "\\n";
+      out += "\\n";
+    });
+    out += "MUST-FIX APPROVALS\\n";
+    document.querySelectorAll('[data-fix]').forEach(cb=>{
+      out += "   [" + (cb.checked?"x":" ") + "] " + cb.dataset.fix + "\\n";
+    });
+    document.getElementById('summaryText').value = out;
+    document.getElementById('modal').classList.add('on');
+  }
+  function copySummary(){
+    const t = document.getElementById('summaryText'); t.select();
+    try{ navigator.clipboard.writeText(t.value); }catch(e){ document.execCommand('copy'); }
+    event.target.textContent = "Copied ✓";
+    setTimeout(()=>{ event.target.textContent = "Copy to clipboard"; }, 1600);
+  }
+</script>
+</body>
+</html>
