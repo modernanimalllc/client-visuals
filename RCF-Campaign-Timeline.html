@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richmond Christian Foundation — September/October 2026 Campaign Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10182B; --ink-2:#2A3852; --slate:#5A6577;
+    --paper:#F7F8FA; --card:#FFFFFF; --rule:#D8DDE6; --rule-soft:#E9ECF1;
+    --gate:#C4342A; --gate-bg:#FBEDEB;
+    --live:#1F6F58; --live-bg:#E9F2EE;
+    --decide:#9A6B06; --decide-bg:#FBF2DF;
+    --build:#3B4E7A; --build-bg:#E8ECF5;
+    --track:#EDF0F5;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:16.5px;line-height:1.62}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px 80px}
+  h1,h2,h3,h4,th,.ui{font-family:Archivo,"Helvetica Neue",Arial,sans-serif}
+
+  .mast{border-bottom:2px solid var(--ink);padding:34px 0 18px}
+  .eyebrow{font-family:Archivo,sans-serif;font-size:12.5px;font-weight:700;color:var(--build)}
+  h1{font-size:clamp(30px,4.4vw,46px);line-height:1.06;font-weight:700;letter-spacing:-.02em;margin:12px 0 10px;max-width:24ch}
+  .standfirst{font-size:19px;color:var(--ink-2);max-width:64ch;margin:0}
+  .meta{font-family:Archivo,sans-serif;font-size:13.5px;color:var(--slate);display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:16px}
+  .meta b{color:var(--ink);font-weight:600}
+
+  section{padding-top:44px}
+  .shead{display:flex;align-items:baseline;gap:12px;border-top:1px solid var(--rule);padding-top:14px;margin-bottom:8px}
+  .snum{font-family:Archivo,sans-serif;font-size:13px;font-weight:700;color:var(--gate);flex:none;padding-top:6px}
+  h2{font-size:clamp(22px,2.6vw,29px);font-weight:600;letter-spacing:-.015em;margin:0;line-height:1.15}
+  .sub{color:var(--slate);font-size:16px;max-width:72ch;margin:6px 0 20px}
+  p{max-width:74ch}
+  h3{font-family:Archivo,sans-serif}
+
+  .asks{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule-soft)}
+  .asks li{padding:13px 0;border-bottom:1px solid var(--rule-soft);display:grid;grid-template-columns:104px 1fr;gap:16px}
+  .asks .tag{font-family:Archivo,sans-serif;font-size:11px;font-weight:700;padding-top:4px;color:var(--gate)}
+  .asks .tag.set{color:var(--live)}
+  .asks .tag.prop{color:var(--build)}
+  .asks .txt{font-size:16px}
+  .asks .txt b{font-family:Archivo,sans-serif;font-size:15.5px;display:block;margin-bottom:1px}
+  @media(max-width:640px){.asks li{grid-template-columns:1fr}}
+  .quote{border-left:3px solid var(--build);background:#fff;padding:13px 17px;margin:10px 0 0;font-size:15.5px;max-width:72ch}
+
+  .scroller{overflow-x:auto;padding-bottom:8px;border:1px solid var(--rule);background:var(--card);border-radius:3px}
+  .board{display:grid;grid-template-columns:180px repeat(61,minmax(22px,1fr));min-width:1620px;position:relative;padding-bottom:14px}
+  .overlay{grid-column:2 / -1;grid-row:1 / -1;position:relative;pointer-events:none}
+  .we{position:absolute;top:0;bottom:0;background:#F2F4F8}
+  .hol{position:absolute;top:0;bottom:0;background:#EAEDF3}
+  .gline{position:absolute;top:34px;bottom:0;border-left:1px dashed var(--gate);opacity:.45}
+  .lbl{grid-column:1;font-family:Archivo,sans-serif;font-size:13px;font-weight:600;color:var(--ink);
+    padding:10px 12px 10px 15px;border-right:1px solid var(--rule);display:flex;align-items:center;
+    line-height:1.25;background:var(--card);position:sticky;left:0;z-index:3}
+  .lbl small{display:block;font-weight:400;color:var(--slate);font-size:11.5px;margin-top:2px}
+  .monthrow,.tickrow,.gates,.lane{grid-column:2 / -1;display:grid;grid-template-columns:repeat(61,1fr);z-index:2;position:relative}
+  .monthrow{border-bottom:1px solid var(--rule)}
+  .monthrow div{font-family:Archivo,sans-serif;font-size:12.5px;font-weight:600;color:var(--slate);padding:9px 0 7px 8px}
+  .tickrow{border-bottom:1px solid var(--rule-soft)}
+  .tickrow span{font-family:Archivo,sans-serif;font-size:11px;color:var(--slate);padding:4px 0 5px 4px;white-space:nowrap}
+  .gates{border-bottom:1px solid var(--rule)}
+  .gate-lbl{font-family:Archivo,sans-serif;font-size:11px;font-weight:700;color:var(--gate);
+    padding:8px 6px;border-left:2px solid var(--gate);line-height:1.25}
+  .lane{align-items:center;min-height:46px;border-bottom:1px solid var(--rule-soft)}
+  .lane.tight{min-height:36px;border-bottom:none}
+  .bar{font-family:Archivo,sans-serif;font-size:10.5px;font-weight:600;line-height:1.18;
+    padding:5px 6px;border-radius:2px;margin:4px 1px;white-space:normal;overflow:hidden;hyphens:auto}
+  .mark{margin:4px 1px;border-radius:2px;height:22px}
+  .b-build{background:var(--build-bg);color:#26355A;border-left:3px solid var(--build)}
+  .b-gate{background:var(--gate-bg);color:#7C221B;border-left:3px solid var(--gate)}
+  .b-live{background:var(--live-bg);color:#134534;border-left:3px solid var(--live)}
+  .b-soft{background:var(--track);color:var(--slate);border-left:3px solid #B9C1CE}
+  .b-decide{background:var(--decide-bg);color:#4A3705;border-left:3px solid var(--decide)}
+  .m-gate{background:var(--gate)}
+  .m-build{background:var(--build)}
+  .chip{font-family:Archivo,sans-serif;font-size:10.5px;font-weight:600;color:var(--ink-2);background:#fff;
+    border:1px solid var(--rule);border-radius:20px;padding:3px 8px;white-space:nowrap;overflow:hidden;
+    text-overflow:ellipsis;margin:2px 1px;text-align:center}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-family:Archivo,sans-serif;font-size:12.5px;color:var(--slate);margin-top:12px}
+  .legend i{display:inline-block;width:22px;height:10px;border-radius:2px;margin-right:7px;vertical-align:middle}
+
+  .tblwrap{overflow-x:auto;border:1px solid var(--rule);background:var(--card);border-radius:3px;margin:8px 0 10px}
+  table{border-collapse:collapse;width:100%;min-width:660px;font-family:Archivo,sans-serif;font-size:14px}
+  th{text-align:left;font-weight:600;font-size:12.5px;color:#fff;background:var(--ink);padding:10px 12px;
+    border-right:1px solid #2C3A54;vertical-align:bottom}
+  td{padding:10px 12px;border-bottom:1px solid var(--rule-soft);border-right:1px solid var(--rule-soft);vertical-align:top}
+  tbody tr:nth-child(even){background:#FBFCFD}
+  td small{display:block;color:var(--slate);font-size:12px;font-weight:400;line-height:1.35;margin-top:2px}
+
+  .funnel{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:10px}
+  @media(max-width:860px){.funnel{grid-template-columns:1fr}}
+  .fpanel{border:1px solid var(--rule);background:var(--card);border-radius:3px;padding:18px}
+  .fpanel.after{border-color:var(--live);box-shadow:0 0 0 1px var(--live) inset}
+  .fpanel h3{margin:0 0 3px;font-size:17px;font-weight:600}
+  .fpanel .fnote{font-size:14.5px;color:var(--slate);margin:0 0 15px}
+  .step{border:1px solid var(--rule);border-radius:2px;padding:9px 11px;font-family:Archivo,sans-serif;font-size:13px;background:#FCFDFE}
+  .step b{display:block;font-size:13.5px;font-weight:600;margin-bottom:1px}
+  .step span{color:var(--slate);font-size:12px}
+  .stagetag{display:inline-block;font-family:Archivo,sans-serif;font-size:10px;font-weight:700;
+    padding:2px 6px;border-radius:2px;margin-bottom:6px}
+  .st1{background:var(--build-bg);color:#26355A}
+  .st2{background:var(--decide-bg);color:#4A3705}
+  .arrow{text-align:center;color:#A9B2C0;font-family:Archivo,sans-serif;font-size:12px;line-height:1;margin:6px 0}
+  .srcs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+  .srcs.two{grid-template-columns:repeat(2,1fr)}
+  .src{border:1px dashed #B9C1CE;border-radius:2px;padding:7px;font-family:Archivo,sans-serif;font-size:11.5px;text-align:center;color:var(--ink-2);line-height:1.25}
+  .leak{background:var(--gate-bg);border-color:#E7B9B3}
+  .inpanel{margin-top:16px;border-top:1px solid var(--rule-soft);padding-top:13px;font-size:14.5px}
+  .inpanel h4{font-family:Archivo,sans-serif;font-size:14px;font-weight:600;margin:0 0 5px}
+  .inpanel p{margin:0;max-width:none;color:var(--ink-2)}
+
+  .note{border-left:3px solid var(--ink);background:#fff;padding:14px 18px;margin:18px 0;font-size:15.5px;max-width:78ch}
+  .note.warn{border-color:var(--gate);background:var(--gate-bg)}
+  .note h4{margin:0 0 5px;font-size:15px;font-weight:600}
+
+  ul.plain{max-width:76ch;padding-left:20px}
+  ul.plain li{margin-bottom:7px}
+  a{color:var(--build);text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--build);outline-offset:2px}
+  footer{margin-top:52px;border-top:2px solid var(--ink);padding-top:18px;font-size:14px;color:var(--slate)}
+  footer p{max-width:82ch}
+  @media print{
+    body{background:#fff;font-size:11pt}
+    .scroller{overflow:visible;border:1px solid #999}
+    .board{min-width:0}
+    section,.fpanel{break-inside:avoid}
+    .wrap{padding:0 8mm}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <span class="eyebrow ui">Richmond Christian Foundation · Prepared by Modern Animal</span>
+  <h1>Campaign timeline, September–October 2026</h1>
+  <p class="standfirst">Everything in flight, the approval dates each piece depends on, and how the funnel is structured.</p>
+  <div class="meta ui">
+    <span><b>Engagement</b> Engage Retainer 2026, extended through Oct 31</span>
+    <span><b>Prepared</b> Tue Sep 1, 2026</span>
+    <span><b>Contact</b> Nathan Meffert</span>
+  </div>
+</header>
+
+<!-- 1 -->
+<section id="today">
+  <div class="shead"><span class="snum">1</span><h2>Where we need your input</h2></div>
+  <ul class="asks">
+    <li>
+      <span class="tag set">Set</span>
+      <div class="txt"><b>The quarterly update sends Tuesday Sep 22</b>The email deploys and the letter mails the same day.</div>
+    </li>
+    <li>
+      <span class="tag">To confirm</span>
+      <div class="txt"><b>The postcard drops Wednesday Sep 9</b>We'll begin printing as soon as we have confirmation that the Friday Sep 4 review deadline will be met — that's what lets us integrate changes on Tuesday Sep 8 and have the pages live in time for the drop.</div>
+    </li>
+    <li>
+      <span class="tag">Note</span>
+      <div class="txt"><b>One review round on the two DAF pages</b>We've kept the pages to a single round of feedback so the ads can go back up quickly. Feedback by Friday Sep 4 keeps everything downstream on schedule.</div>
+    </li>
+    <li>
+      <span class="tag prop">Proposal</span>
+      <div class="txt"><b>A phone option on the consultation path</b>
+        <div class="quote">
+          We'd like to add a Google Voice number that forwards to RCF's main number, for people who want to call in rather than submit the form when requesting a consultation. It can also route to voicemail, with messages transcribed and delivered by email, so nothing is missed outside office hours. The form stays the primary method of communication. Dominick and Nathan believe a phone number may make outreach easier for prospects who prefer calling — likely a meaningful share of an older audience.
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- 2 -->
+<section id="timeline">
+  <div class="shead"><span class="snum">2</span><h2>The timeline</h2></div>
+  <p class="sub">Sep 1 to Oct 31. Red dashed lines mark the dates everything downstream depends on. Grey columns are weekends; Monday Sep 7 is Labor Day. Mail pieces show transit separately from response, because nothing happens until pieces land.</p>
+
+  <div class="scroller">
+    <div class="board">
+      <div class="overlay" aria-hidden="true">
+        <div class="we"  style="left:6.557%;width:3.279%"></div>
+        <div class="hol" style="left:9.836%;width:1.639%"></div>
+        <div class="we"  style="left:18.033%;width:3.279%"></div>
+        <div class="we"  style="left:29.508%;width:3.279%"></div>
+        <div class="we"  style="left:40.984%;width:3.279%"></div>
+        <div class="we"  style="left:52.459%;width:3.279%"></div>
+        <div class="we"  style="left:63.934%;width:3.279%"></div>
+        <div class="we"  style="left:75.410%;width:3.279%"></div>
+        <div class="we"  style="left:86.885%;width:3.279%"></div>
+        <div class="we"  style="left:98.361%;width:1.639%"></div>
+        <div class="gline" style="left:4.918%"></div>
+        <div class="gline" style="left:13.115%"></div>
+        <div class="gline" style="left:22.951%"></div>
+        <div class="gline" style="left:34.426%"></div>
+        <div class="gline" style="left:50.820%"></div>
+        <div class="gline" style="left:96.721%"></div>
+      </div>
+
+      <div class="lbl" style="grid-row:1">Month</div>
+      <div class="monthrow" style="grid-row:1">
+        <div style="grid-column:1 / span 30">September 2026</div>
+        <div style="grid-column:31 / span 31">October 2026</div>
+      </div>
+
+      <div class="lbl" style="grid-row:2">Week of</div>
+      <div class="tickrow" style="grid-row:2">
+        <span style="grid-column:1 / span 6">Sep 1</span>
+        <span style="grid-column:7 / span 7">Sep 7</span>
+        <span style="grid-column:14 / span 7">Sep 14</span>
+        <span style="grid-column:21 / span 7">Sep 21</span>
+        <span style="grid-column:28 / span 7">Sep 28</span>
+        <span style="grid-column:35 / span 7">Oct 5</span>
+        <span style="grid-column:42 / span 7">Oct 12</span>
+        <span style="grid-column:49 / span 7">Oct 19</span>
+        <span style="grid-column:56 / span 6">Oct 26</span>
+      </div>
+
+      <div class="lbl" style="grid-row:3">Key dates</div>
+      <div class="gates" style="grid-row:3">
+        <div class="gate-lbl" style="grid-column:4 / span 5">Sep 4 — page feedback due</div>
+        <div class="gate-lbl" style="grid-column:9 / span 6">Sep 9 — pages live, postcard mails</div>
+        <div class="gate-lbl" style="grid-column:15 / span 7">Sep 15 — quarterly email feedback due</div>
+        <div class="gate-lbl" style="grid-column:22 / span 10">Sep 22 — quarterly sends and mails</div>
+        <div class="gate-lbl" style="grid-column:32 / span 28">Oct 2 — onboarding sequence ready</div>
+        <div class="gate-lbl" style="grid-column:60 / span 2">Oct 30</div>
+      </div>
+
+      <div class="lbl" style="grid-row:4">Meta ads<small>Pages, then relaunch</small></div>
+      <div class="lane" style="grid-row:4">
+        <div class="mark m-build" style="grid-column:2 / span 1" title="Both page sets delivered EOB Sep 1"></div>
+        <div class="bar b-gate" style="grid-column:3 / span 3">Page review, one round</div>
+        <div class="bar b-build" style="grid-column:9 / span 2">Revise + verify</div>
+        <div class="bar b-live" style="grid-column:11 / span 21">Phase 1 relaunch — spend held flat, read page conversion</div>
+        <div class="bar b-decide" style="grid-column:37 / span 26">Phase 2 — spend decision Oct 6, then optimise to close</div>
+      </div>
+
+      <div class="lbl" style="grid-row:5">Postcard<small>3,000 mailed, cold</small></div>
+      <div class="lane" style="grid-row:5">
+        <div class="bar b-build" style="grid-column:3 / span 7">Print begins on confirmation</div>
+        <div class="mark m-gate" style="grid-column:10 / span 1" title="Mails Wed Sep 9"></div>
+        <div class="bar b-soft" style="grid-column:11 / span 5">In transit</div>
+        <div class="bar b-live" style="grid-column:16 / span 28">In home Sep 14–18, then awareness &amp; response window</div>
+      </div>
+
+      <div class="lbl" style="grid-row:6">Quarterly update<small>179 warm · letter + email</small></div>
+      <div class="lane" style="grid-row:6">
+        <div class="bar b-gate" style="grid-column:3 / span 3">Letter copy feedback</div>
+        <div class="bar b-build" style="grid-column:9 / span 4">Build email version</div>
+        <div class="bar b-gate" style="grid-column:15 / span 2">Email feedback</div>
+        <div class="mark m-build" style="grid-column:17 / span 1" title="Final delivered Wed Sep 16, four business days before send"></div>
+        <div class="bar b-build" style="grid-column:18 / span 5">Print &amp; mail prep</div>
+        <div class="mark m-gate" style="grid-column:23 / span 1" title="Email sends and letter mails Tue Sep 22"></div>
+        <div class="bar b-soft" style="grid-column:24 / span 6">Letter in home Sep 24–28</div>
+        <div class="bar b-soft" style="grid-column:30 / span 16">Replies &amp; response</div>
+      </div>
+
+      <div class="lbl" style="grid-row:7">Donor onboarding<small>General foundation sequence</small></div>
+      <div class="lane" style="grid-row:7">
+        <div class="bar b-build" style="grid-column:9 / span 25">Build — starts week of Sep 8, two review rounds</div>
+        <div class="bar b-live" style="grid-column:34 / span 29">Live — orientation material for cold prospects met in the community</div>
+      </div>
+
+      <div class="lbl" style="grid-row:8">Engagement<small>Term &amp; next phase</small></div>
+      <div class="lane" style="grid-row:8">
+        <div class="bar b-soft" style="grid-column:2 / span 44">Engagement as previously scheduled — ran to mid-October</div>
+        <div class="bar b-live" style="grid-column:46 / span 17">Extension — two weeks added to absorb review delays</div>
+      </div>
+      <div class="lbl" style="grid-row:9">&nbsp;</div>
+      <div class="lane tight" style="grid-row:9">
+        <div class="bar b-decide" style="grid-column:32 / span 31">Conversations about the next phase of work together</div>
+      </div>
+
+      <div class="lbl" style="grid-row:10">Project syncs<small>Biweekly, Tue 13:45 ET</small></div>
+      <div class="lane" style="grid-row:10">
+        <div class="chip" style="grid-column:2 / span 5">Sep 1 — today</div>
+        <div class="chip" style="grid-column:16 / span 5">Sep 15</div>
+        <div class="chip" style="grid-column:30 / span 5">Sep 29 — pre-Oct read</div>
+        <div class="chip" style="grid-column:44 / span 5">Oct 13 — next phase</div>
+        <div class="chip" style="grid-column:58 / span 4">Oct 27 — close</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend ui">
+    <span><i style="background:var(--build-bg);border-left:3px solid var(--build)"></i>Modern Animal production</span>
+    <span><i style="background:var(--gate-bg);border-left:3px solid var(--gate)"></i>Review, approval or fixed date</span>
+    <span><i style="background:var(--live-bg);border-left:3px solid var(--live)"></i>In market</span>
+    <span><i style="background:var(--decide-bg);border-left:3px solid var(--decide)"></i>Decision point</span>
+    <span><i style="background:var(--track);border-left:3px solid #B9C1CE"></i>Transit / trailing</span>
+  </div>
+
+  <div class="note warn">
+    <h4>The first ten days set everything downstream</h4>
+    Page feedback and quarterly letter feedback are both due Friday Sep 4. Monday Sep 7 is Labor Day, and the postcard mails Wednesday Sep 9. That leaves one working day of buffer between your feedback and the mail date — which is why printing doesn't begin until we know Sep 4 will be met. If it slips, the postcard drop moves rather than mailing to a page that isn't live.
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="deliverables">
+  <div class="shead"><span class="snum">3</span><h2>Deliverables, dates and delivery</h2></div>
+  <p class="sub">Mail pieces show both the drop date and the estimated in-home window, since response starts when pieces land rather than when they mail.</p>
+  <div class="tblwrap">
+    <table>
+      <thead>
+        <tr><th>Deliverable</th><th>Delivered to you</th><th>Feedback due</th><th>Review rounds</th><th>Mails / goes live</th><th>Est. in home</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>DAF 3-part guide sign-up page</b><small>Plus thank-you page with a button through to the consultation request, for event tracking</small></td>
+          <td>Tue Sep 1, EOB</td><td>Fri Sep 4</td><td><b>One</b><small>Kept to one round to expedite the relaunch</small></td><td>Wed Sep 9</td><td>—</td>
+        </tr>
+        <tr>
+          <td><b>DAF consultation request page</b><small>Plus thank-you page for event tracking</small></td>
+          <td>Tue Sep 1, EOB</td><td>Fri Sep 4</td><td><b>One</b></td><td>Wed Sep 9</td><td>—</td>
+        </tr>
+        <tr>
+          <td><b>Meta campaign relaunch</b><small>Both campaigns paused since Aug 25</small></td>
+          <td>—</td><td>—</td><td>—</td><td>Thu Sep 10</td><td>—</td>
+        </tr>
+        <tr>
+          <td><b>Postcard, cold audience</b><small>3,000 mailed, 500 printed as extras · CTA is the 3-part email guide</small></td>
+          <td>Print begins on confirmation<small>of the Sep 4 review deadline</small></td>
+          <td>Fri Sep 4<small>for the destination page</small></td><td>—</td><td><b>Wed Sep 9</b></td>
+          <td>Mon Sep 14 – Fri Sep 18<small>Marketing Mail, mostly local/regional: 3–7 business days</small></td>
+        </tr>
+        <tr>
+          <td><b>Quarterly update — letter</b><small>Soft, non-DAF-specific ask</small></td>
+          <td>Tue Sep 1 <small>copy</small></td><td>Fri Sep 4</td>
+          <td><b>One</b><small>Second only if genuinely needed</small></td><td>Mails Tue Sep 22</td>
+          <td>Thu Sep 24 – Mon Sep 28<small>First-Class, local: 2–4 business days</small></td>
+        </tr>
+        <tr>
+          <td><b>Quarterly update — email</b><small>Same content, sends the day the letter mails</small></td>
+          <td>Draft Fri Sep 11<br>Final Wed Sep 16<small>four business days before send</small></td>
+          <td>Tue Sep 15</td><td><b>One</b></td><td>Sends Tue Sep 22</td><td>Same day</td>
+        </tr>
+        <tr>
+          <td><b>Donor prospect onboarding sequence</b><small>General informational sequence about the foundation, for orientation of cold prospects met in the community. Integrating a website sign-up form is a recommendation for future work.</small></td>
+          <td>Late Sep, draft</td><td>1–3 days per round</td><td><b>Two</b></td><td>Fri Oct 2</td><td>—</td>
+        </tr>
+        <tr>
+          <td><b>Engagement extension to Oct 31</b><small>Two weeks added to absorb review delays and give the Meta campaigns a full optimisation window</small></td>
+          <td>This week</td><td>—</td><td>—</td><td>Term ends Sat Oct 31; close-out Fri Oct 30</td><td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note warn">
+    <h4>Review windows are the schedule's single biggest dependency</h4>
+    The 1–3 day windows above are given as a point of reference, and they're what the rest of the schedule is built on. The delays the project is currently carrying come from feedback generally not arriving inside them, and that is the reason two weeks are being added to the end of the engagement. Three days should be the high end rather than the default, and two rounds should only be used where genuinely needed — most of these deliverables won't require a second. What that means in practice: all stakeholder feedback needs to be gathered and returned as one consolidated response inside the stated window. If it isn't, dates move again, and there's no further runway to add at the back end.
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="funnel">
+  <div class="shead"><span class="snum">4</span><h2>How the funnel works</h2></div>
+  <p class="sub">Two stages, not two parallel campaigns.</p>
+
+  <div class="funnel">
+    <div class="fpanel">
+      <h3>Before — one page, three jobs</h3>
+      <p class="fnote">Cold and warm traffic all landed in the same place.</p>
+      <div class="srcs">
+        <div class="src">Meta<br>campaign 1<br><b>cold</b></div>
+        <div class="src">Postcard<br><br><b>cold</b></div>
+        <div class="src">Meta<br>campaign 2<br><b>warm</b></div>
+      </div>
+      <div class="arrow">all point here</div>
+      <div class="step leak"><b>Personal Giving Fund page</b><span>Explains the product before it asks. Site navigation present. Two competing calls to action, and the form is one more click away.</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>Form on a separate page</b><span>Every step sheds people.</span></div>
+    </div>
+
+    <div class="fpanel after">
+      <h3>After — acquire, then convert</h3>
+      <p class="fnote">Stage 1 brings a name into email. Stage 2 converts the people Stage 1 brought in.</p>
+      <span class="stagetag st1">Stage 1 · acquisition</span>
+      <div class="srcs two">
+        <div class="src">Meta campaign 1<br><b>cold, ongoing</b></div>
+        <div class="src">Postcard<br><b>awareness, one drop</b></div>
+      </div>
+      <div class="arrow">↓ both point at the same page ↓</div>
+      <div class="step"><b>Guide sign-up page</b><span>One call to action, form on the page, no navigation. Its only job is to get a name into email.</span></div>
+      <div class="arrow">↓</div>
+      <div class="step"><b>3-part email nurture series</b><span>Where conversion actually happens. Extending to five or six emails is a recommendation in section 5.</span></div>
+      <div class="arrow">↓</div>
+      <span class="stagetag st2">Stage 2 · conversion</span>
+      <div class="step"><b>Consultation request page</b><span>Fed by four paths: the series, the guide thank-you page, the Meta retargeting campaign aimed at the same people, and the phone line. Plus a thin stream of cold visitors who arrive already ready.</span></div>
+
+      <div class="inpanel">
+        <h4>Where the postcard sits in this</h4>
+        <p>The postcard is primarily a general awareness move, and it shouldn't be measured strictly on conversions into the three-part guide. Its job is getting RCF's name out in the community, with a convenient DAF-related call to action for anyone who happens to be interested when it arrives. Mail like this is strong for brand awareness, and awareness built now converts into relationships later — often well outside the window in which the piece mailed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="consultations">
+  <div class="shead"><span class="snum">5</span><h2>How we lift consultations</h2></div>
+  <p class="sub">A consultation is the high-commitment step in this funnel. These are the changes going in now, and the levers beyond them.</p>
+
+  <h3 style="margin:22px 0 6px;font-size:17px">In flight now</h3>
+  <ul class="plain">
+    <li><b>A rebuilt consultation page.</b> Credibility elements, easier navigation, one clear call to action, and the form on the page rather than a click away.</li>
+    <li><b>An immediate consultation offer after guide sign-up.</b> The thank-you page carries a button straight through to the consultation request, which also gives clean event tracking.</li>
+    <li><b>A Google Voice number forwarding to RCF's main line</b>, routing to voicemail when nobody picks up, with messages transcribed and emailed. Captures prospects who would rather call than complete a form.</li>
+    <li><b>A softer ask.</b> "A 20-minute call, no obligation" rather than "consultation," which carries weight of its own.</li>
+  </ul>
+
+  <div class="note warn">
+    <h4>A consultation remains a heavy ask</h4>
+    Requesting a consultation is a high-commitment step, on a financial topic, from a cold audience. The changes above remove friction, but they don't remove the weight of the ask itself. These are the next levers we'd recommend, most of them suited to a following phase of work.
+    <ul class="plain" style="margin-top:10px">
+      <li><b>Extend the series from three emails to five or six.</b> The series is where conversion happens, and three emails is a short runway for a decision this size. The added emails would carry the credibility indicators, the motivators, and the items below that don't fit on a page — testimonials, the DAF explainer, the advisor-facing material.</li>
+      <li><b>An on-page video explaining what a DAF is</b> — the biggest comprehension barrier, and video handles it better than copy.</li>
+      <li><b>Real testimonials</b> from existing fund holders. Nothing substitutes for it on a financial page.</li>
+      <li><b>Ministry and organizational associations</b> shown on the page. For this audience, who RCF stands alongside carries more weight than any claim RCF makes about itself.</li>
+      <li><b>An extended branded PDF</b> a prospect can forward to a spouse or a financial advisor. These decisions are rarely made alone.</li>
+      <li><b>Educational video ads</b> in a future Meta update, warming the audience before the ask.</li>
+      <li><b>Ongoing educational social content</b>, so the ads aren't the only place RCF explains this.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>Richmond Christian Foundation · Prepared by Modern Animal · Sep 1, 2026. Delivery windows are USPS service-standard estimates for a mostly local list, not guarantees.</p>
+</footer>
+
+</div>
+</body>
+</html>
