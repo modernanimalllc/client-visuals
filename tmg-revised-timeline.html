@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Rebuild — Project Plan | The Marriage Group × Modern Animal</title>
+<meta name="description" content="Project plan and revised schedule for The Marriage Group website rebuild, Phase 1. Scope and investment are unchanged.">
+<style>
+  :root{
+    --ink:#0d0d0c;
+    --ink-soft:#57575a;
+    --ink-faint:#8a8a8f;
+    --rule:#e3e1dc;
+    --rule-soft:#efedea;
+    --paper:#ffffff;
+    --paper-warm:#faf9f7;
+    --accent:#f7e02e;
+    --accent-deep:#a89000;
+    --sans:"Azo Sans","Europa",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --serif:"Adobe Caslon Pro","Iowan Old Style",Georgia,"Times New Roman",serif;
+    --measure:44rem;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+
+  html{-webkit-text-size-adjust:100%}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:var(--measure);
+    margin:0 auto;
+    padding:0 16px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead{
+    border-bottom:1px solid var(--rule);
+    padding:56px 0 40px;
+    margin-bottom:56px;
+  }
+
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 20px;
+  }
+
+  h1{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:clamp(30px,6.2vw,46px);
+    line-height:1.06;
+    letter-spacing:-.015em;
+    text-transform:uppercase;
+    margin:0 0 20px;
+  }
+
+  .standfirst{
+    font-size:clamp(18px,3.4vw,21px);
+    line-height:1.45;
+    color:var(--ink-soft);
+    margin:0 0 26px;
+    max-width:32em;
+  }
+
+  .standfirst strong{color:var(--ink);font-weight:600}
+
+  .byline{
+    font-family:var(--sans);
+    font-size:12px;
+    letter-spacing:.06em;
+    color:var(--ink-faint);
+    margin:0;
+  }
+
+  /* ---------- sections ---------- */
+
+  section{margin-bottom:60px}
+
+  h2{
+    font-family:var(--sans);
+    font-weight:800;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    margin:0 0 24px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--rule);
+  }
+
+  p{margin:0 0 18px}
+  p:last-child{margin-bottom:0}
+
+  .lead{font-size:19px;line-height:1.55}
+
+  /* ---------- headline change cards ---------- */
+
+  .changes{
+    display:grid;
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    grid-template-columns:1fr;
+  }
+
+  @media(min-width:640px){
+    .changes{grid-template-columns:repeat(3,1fr)}
+  }
+
+  .change{
+    background:var(--paper-warm);
+    padding:22px 20px;
+  }
+
+  .change-label{
+    font-family:var(--sans);
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 12px;
+  }
+
+  .change-was{
+    font-family:var(--sans);
+    font-size:13px;
+    color:var(--ink-faint);
+    text-decoration:line-through;
+    text-decoration-thickness:1px;
+    margin:0 0 4px;
+  }
+
+  .change-now{
+    font-family:var(--sans);
+    font-size:19px;
+    font-weight:700;
+    letter-spacing:-.01em;
+    margin:0;
+    line-height:1.25;
+  }
+
+  .change-now .mark{
+    box-shadow:inset 0 -.42em 0 var(--accent);
+  }
+
+  /* ---------- inputs table ---------- */
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:0 0 22px;
+    font-family:var(--sans);
+    font-size:14px;
+  }
+
+  caption{
+    caption-side:top;
+    text-align:left;
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    padding-bottom:10px;
+  }
+
+  th,td{
+    text-align:left;
+    padding:11px 12px 11px 0;
+    border-bottom:1px solid var(--rule-soft);
+    vertical-align:top;
+  }
+
+  thead th{
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    border-bottom:1px solid var(--rule);
+    padding-bottom:9px;
+  }
+
+  tbody th{font-weight:600}
+
+  tbody tr:last-child th,
+  tbody tr:last-child td{border-bottom:0}
+
+  .num{white-space:nowrap}
+
+  /* ---------- timeline ---------- */
+
+  .timeline{
+    list-style:none;
+    margin:0;
+    padding:0 0 0 30px;
+    position:relative;
+  }
+
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px;
+    top:9px;
+    bottom:9px;
+    width:1px;
+    background:var(--rule);
+  }
+
+  .timeline li{
+    position:relative;
+    padding:0 0 30px;
+  }
+
+  .timeline li:last-child{padding-bottom:0}
+
+  .timeline li::before{
+    content:"";
+    position:absolute;
+    left:-30px;
+    top:7px;
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1.5px solid var(--ink-faint);
+  }
+
+  .timeline li.key::before{
+    background:var(--accent);
+    border-color:var(--ink);
+    width:13px;
+    height:13px;
+    left:-31px;
+    top:6px;
+  }
+
+  .timeline li.event::before{
+    background:var(--ink);
+    border-color:var(--ink);
+  }
+
+  .t-date{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    display:block;
+    margin-bottom:5px;
+  }
+
+  .timeline li.key .t-date{color:var(--accent-deep)}
+
+  .t-title{
+    font-family:var(--sans);
+    font-size:17px;
+    font-weight:700;
+    letter-spacing:-.005em;
+    margin:0 0 5px;
+    line-height:1.3;
+  }
+
+  .timeline li.key .t-title{font-size:19px}
+
+  .t-body{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  .t-tag{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:9.5px;
+    font-weight:700;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--paper);
+    padding:3px 7px;
+    border-radius:2px;
+    margin-left:8px;
+    vertical-align:2px;
+  }
+
+  .t-tag.client{background:var(--accent);color:var(--ink)}
+
+  /* ---------- what we need from you ---------- */
+
+  .asks{
+    border-top:1px solid var(--rule);
+    margin:0 0 22px;
+  }
+
+  .ask{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:3px;
+    padding:16px 0;
+    border-bottom:1px solid var(--rule-soft);
+  }
+
+  @media(min-width:640px){
+    .ask{
+      grid-template-columns:154px 1fr;
+      column-gap:26px;
+      gap:0;
+    }
+  }
+
+  .ask-when{
+    font-family:var(--sans);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    margin:0;
+    padding-top:3px;
+  }
+
+  .ask-what{
+    font-family:var(--sans);
+    font-size:16.5px;
+    font-weight:700;
+    letter-spacing:-.005em;
+    margin:0 0 3px;
+    line-height:1.35;
+  }
+
+  .ask-why{
+    margin:0;
+    font-size:16px;
+    line-height:1.5;
+    color:var(--ink-soft);
+  }
+
+  .kind{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:9px;
+    font-weight:700;
+    letter-spacing:.13em;
+    text-transform:uppercase;
+    border:1px solid var(--rule);
+    color:var(--ink-faint);
+    padding:2px 6px;
+    border-radius:2px;
+    margin-left:8px;
+    vertical-align:2px;
+    white-space:nowrap;
+  }
+
+  .kind.approval{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+  .kind.blocking{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+  /* ---------- unchanged list ---------- */
+
+  .kept{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    gap:1px;
+    background:var(--rule-soft);
+    border-top:1px solid var(--rule-soft);
+    border-bottom:1px solid var(--rule-soft);
+  }
+
+  .kept li{
+    background:var(--paper);
+    padding:13px 0 13px 30px;
+    position:relative;
+    font-size:16.5px;
+    line-height:1.5;
+  }
+
+  .kept li::before{
+    content:"";
+    position:absolute;
+    left:4px;
+    top:22px;
+    width:13px;
+    height:2px;
+    background:var(--accent);
+  }
+
+  /* ---------- pages ---------- */
+
+  .pages{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1px;
+    background:var(--rule-soft);
+    border:1px solid var(--rule-soft);
+  }
+
+  @media(min-width:520px){
+    .pages{grid-template-columns:1fr 1fr}
+  }
+
+  .page-item{
+    background:var(--paper);
+    padding:13px 15px;
+    font-family:var(--sans);
+    font-size:14.5px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+  }
+
+  .page-when{
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+
+  .page-item.wave1 .page-when{color:var(--accent-deep)}
+
+  /* ---------- note ---------- */
+
+  .note{
+    background:var(--paper-warm);
+    border-left:3px solid var(--accent);
+    padding:20px 22px;
+    margin:32px 0 0;
+  }
+
+  .note p{font-size:16.5px}
+
+  /* ---------- footer ---------- */
+
+  footer{
+    border-top:1px solid var(--rule);
+    margin-top:72px;
+    padding:28px 0 60px;
+    font-family:var(--sans);
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--ink-faint);
+  }
+
+  footer p{margin:0 0 6px}
+
+  /* ---------- print ---------- */
+
+  @media print{
+    body{font-size:11pt}
+    .masthead{padding-top:0;margin-bottom:28pt}
+    section{margin-bottom:24pt;break-inside:avoid}
+    .timeline li{break-inside:avoid}
+    footer{margin-top:24pt;padding-bottom:0}
+    .change{background:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Phase 1 · Scope revision SRD-TMG-002</p>
+    <h1>Website Rebuild<br>Project Plan</h1>
+    <p class="standfirst">The revised schedule, what happens when, and what is needed from The Marriage Group along the way. <strong>The scope of work and the investment are unchanged from the September 4 proposal.</strong></p>
+    <p class="byline">The Marriage Group × Modern Animal · September 2026</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>What changes</h2>
+    <div class="changes">
+      <div class="change">
+        <p class="change-label">Go live</p>
+        <p class="change-was">Thursday, October 1</p>
+        <p class="change-now"><span class="mark">Wednesday, Oct 7</span></p>
+      </div>
+      <div class="change">
+        <p class="change-label">Final delivery</p>
+        <p class="change-was">October 1–7</p>
+        <p class="change-now"><span class="mark">Friday, Oct 23</span></p>
+      </div>
+      <div class="change">
+        <p class="change-label">Stabilization</p>
+        <p class="change-was">Through October 22</p>
+        <p class="change-now"><span class="mark">Weeks of Oct 26<br>&amp; Nov 2</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why the dates move</h2>
+    <p class="lead">The October 1 date in the proposal assumed platform access when requested and client-supplied content on the dates named. Two inputs came in behind that schedule.</p>
+
+    <table>
+      <caption>Inputs against schedule</caption>
+      <thead>
+        <tr><th scope="col">Input</th><th scope="col">Scheduled</th><th scope="col">Received</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Deposit</th><td class="num">September 4</td><td class="num">September 8</td></tr>
+        <tr><th scope="row">Platform access</th><td class="num">September 8</td><td class="num">Sept 18, estimated</td></tr>
+      </tbody>
+    </table>
+
+    <p>Platform access is still outstanding. Together these removed more than a week from the production window before it opened, and this revision rounds that up — giving the ecommerce work the time and space to be done well, clear of the conference deadline.</p>
+  </section>
+
+  <section>
+    <h2>What is needed from The Marriage Group</h2>
+
+    <p class="lead">Six points across the project. Everything else runs on Modern Animal's side.</p>
+
+    <div class="asks">
+
+      <div class="ask">
+        <p class="ask-when">As soon as possible</p>
+        <div>
+          <p class="ask-what">Platform access<span class="kind blocking">Outstanding</span></p>
+          <p class="ask-why">Lovable, the GitHub repository, Google Analytics and Ads, and WordPress. The first wave of work sits behind this.</p>
+        </div>
+      </div>
+
+      <div class="ask">
+        <p class="ask-when">Early in the week of Sept 21</p>
+        <div>
+          <p class="ask-what">Clergy Hub case studies<span class="kind">Content</span></p>
+          <p class="ask-why">Approved and cleared for publication. The page copy is written that week — whatever has arrived by then is what goes in, as the page will not be held.</p>
+        </div>
+      </div>
+
+      <div class="ask">
+        <p class="ask-when">Week of Sept 28</p>
+        <div>
+          <p class="ask-what">Approve the Homepage and Clergy Hub<span class="kind approval">Approval</span></p>
+          <p class="ask-why">One round covering both pages — the Homepage as a finished design with motion, the Clergy Hub as a wireframe with final copy, with theological review inside the same round. The Homepage approval is the one that carries furthest: it locks the visual language for all eight pages, not just this one.</p>
+        </div>
+      </div>
+
+      <div class="ask">
+        <p class="ask-when">From go-live</p>
+        <div>
+          <p class="ask-what">Use the /CFLA link in conference promotion<span class="kind">Action</span></p>
+          <p class="ask-why">themarriagegroup.com/cfla. Anything printed or scheduled ahead of the event should point there so conference traffic is attributed.</p>
+        </div>
+      </div>
+
+      <div class="ask">
+        <p class="ask-when">Week of Oct 12</p>
+        <div>
+          <p class="ask-what">Approve the remaining six pages<span class="kind approval">Approval</span></p>
+          <p class="ask-why">Copy and layout, all six in one round. The last approval before build.</p>
+        </div>
+      </div>
+
+      <div class="ask">
+        <p class="ask-when">Oct 7 and Oct 23</p>
+        <div>
+          <p class="ask-what">Payments at go-live and final delivery<span class="kind">Payment</span></p>
+          <p class="ask-why">Amounts and terms as set out in the scope revision.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p>Each deliverable includes two rounds of review; the two conference pages are reviewed together in one round rather than separately. The exact days will be confirmed as each one approaches; the windows are one working day each, and that is what holds the October 7 date. A third round on any deliverable falls outside the current scope.</p>
+  </section>
+
+  <section>
+    <h2>The revised schedule</h2>
+
+    <p class="lead">The conference stays the fixed point. The Homepage and Clergy Hub go live and are verified the day before CFLA opens; the remaining six pages follow, each switching over as it is ready.</p>
+
+    <ol class="timeline">
+      <li>
+        <span class="t-date">Week of September 14</span>
+        <p class="t-title">Set up and prove the platform</p>
+        <p class="t-body">Design system established, and the routing approach tested on the live domain before anything is built on it.</p>
+      </li>
+      <li>
+        <span class="t-date">Week of September 21</span>
+        <p class="t-title">Homepage and Clergy Hub — design and copy</p>
+        <p class="t-body">Both pages run in parallel: wireframes, copy, and the Homepage design with motion. They go out for review together at the end of the week.</p>
+      </li>
+      <li>
+        <span class="t-date">Week of September 28</span>
+        <p class="t-title">Review, approval and build</p>
+        <p class="t-body">One approval round covering both pages, feedback integrated, then the component set and both page builds — alongside the staged migration and conference tracking.</p>
+      </li>
+      <li>
+        <span class="t-date">Week of October 5</span>
+        <p class="t-title">Final QA and fixes</p>
+        <p class="t-body">Design, content, accessibility, routing and tracking checked end to end. Everything is fixed and signed off by end of day October 6, so the 7th is cutover and verification only.</p>
+      </li>
+      <li class="key">
+        <span class="t-date">Wednesday, October 7</span>
+        <p class="t-title">Go live<span class="t-tag client">Milestone</span></p>
+        <p class="t-body">Homepage and Clergy Hub live and verified on themarriagegroup.com, with conference tracking and the /CFLA link in place.</p>
+      </li>
+      <li class="event">
+        <span class="t-date">October 8 – 10</span>
+        <p class="t-title">CFLA, Charleston</p>
+        <p class="t-body">The Marriage Group's team is at the conference. Modern Animal's build continues through the event without pause.</p>
+      </li>
+      <li>
+        <span class="t-date">Weeks of October 12 and 19</span>
+        <p class="t-title">Remaining six pages</p>
+        <p class="t-body">Beginning October 8, the day after go-live. Copy and layout for all six, approved together in the week of October 12, then built on the design system established in the first wave — alongside the full checkout and order-level attribution work and search-visibility preservation.</p>
+      </li>
+      <li class="key">
+        <span class="t-date">Friday, October 23</span>
+        <p class="t-title">Final delivery<span class="t-tag client">Milestone</span></p>
+        <p class="t-body">All eight pages live. All scope complete.</p>
+      </li>
+      <li>
+        <span class="t-date">Weeks of October 26 and November 2</span>
+        <p class="t-title">Stabilization and handover</p>
+        <p class="t-body">Monitoring, fixes, documentation and team training.</p>
+      </li>
+    </ol>
+
+    <div class="note">
+      <p>Modern Animal will keep working to bring additional pages live ahead of the conference. Given where the delays have left the schedule, two pages is what can be committed to with confidence — anything beyond that will go live as soon as it is ready.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The eight pages</h2>
+    <div class="pages">
+      <div class="page-item wave1"><span>Homepage</span><span class="page-when">Oct 7</span></div>
+      <div class="page-item wave1"><span>Clergy Hub</span><span class="page-when">Oct 7</span></div>
+      <div class="page-item"><span>About &amp; Our Story</span><span class="page-when">Oct 23</span></div>
+      <div class="page-item"><span>Courses Hub</span><span class="page-when">Oct 23</span></div>
+      <div class="page-item"><span>Pre-Cana Overview</span><span class="page-when">Oct 23</span></div>
+      <div class="page-item"><span>NFP Life Overview</span><span class="page-when">Oct 23</span></div>
+      <div class="page-item"><span>Marriage Enrichment</span><span class="page-when">Oct 23</span></div>
+      <div class="page-item"><span>Contact</span><span class="page-when">Oct 23</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>Modern Animal · Scope Revision SRD-TMG-002 · September 2026</p>
+  <p>All other terms of the September 4 proposal continue unchanged.</p>
+</footer>
+
+</body>
+</html>
